@@ -39,9 +39,17 @@ You will see the app at `http://localhost:5000` on your browser.
 The app has `Add Product`,  `Load Products`, `List Products`, `Email Schedule` pages.
 
 `Add Product` - add new product with data
+
 `Load Products` - show the active customer products. (This is the default page)
+
 `List Products` - show list of products sorted by **CustomerId**
+
 `Email Schedule` - show email schedule list
+
 
 You can click `Demo Data` button to use demo products.
 
+
+----
+
+**Happy coding, Hell Yeah!**
