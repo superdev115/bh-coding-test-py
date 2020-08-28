@@ -37,6 +37,10 @@ th, td {
     padding: 15px;
 }
 
+.product-table td {
+    text-align: center;
+}
+
 .flash {
     background: #CEE5F5;
     padding: 0.5em;

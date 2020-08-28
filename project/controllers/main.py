@@ -6,6 +6,11 @@ from wtforms.fields import StringField, SelectField, html5 as html5fields
 from wtforms.validators import DataRequired, NumberRange, Regexp
 from wtforms.widgets import html5 as html5widgets
 
+from project.models.product import Product
+from project.models.product_manager import ProductManager
+
+productManager = ProductManager()
+
 class AddProductForm(FlaskForm):
     customerId = StringField('Customer Id', validators=[DataRequired()])
     product_name = SelectField('Product Name', choices=[('domain', 'Domain'), ('hosting', 'Hosting'), ('email', 'Email'), ('pdomain', 'P-Domain'), ('edomain', 'E-Domain')], validators=[DataRequired()])
@@ -15,13 +20,19 @@ class AddProductForm(FlaskForm):
 @app.route('/')
 @app.route('/load_products')
 def load_products():
-    return render_template('main/load_products.html')
+    return render_template('main/load_products.html', products=productManager.products)
 
 @app.route('/add_product', methods=['GET', 'POST'])
 def add_product():
     form = AddProductForm(request.form)
     if request.method == 'POST' and form.validate():
-        return render_template('main/load_products.html')
+        p = Product(form.customerId.data,
+                    form.product_name.data,
+                    form.domain.data,
+                    form.duration_months.data)
+        productManager.add(p)
+
+        return render_template('main/load_products.html', products=productManager.products)
     return render_template('main/add_product.html', form=form)
 
 @app.route('/list_products')

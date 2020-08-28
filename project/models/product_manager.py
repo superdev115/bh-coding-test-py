@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 from datetime import date
+from project.models.product import Product
 
 class ProductManager:
 
     products = []
 
     def add(self, customerId, productName, domain, durationMmonths):
-        self.products.add(Product(customerId, productName, domain, durationMmonths))
+        self.products.append(Product(customerId, productName, domain, durationMmonths))
+
+    def add(self, product):
+        self.products.append(product)
 
     def demo_data(self):
         self.products.clear()

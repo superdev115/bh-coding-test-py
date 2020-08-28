@@ -1,4 +1,27 @@
 {% extends "layout/layout.html" %}
 {% block body %}
     <h1>Load Products</h1>
+
+    <table class="product-table">
+        <tr>
+            <th>CustomerId</th>
+            <th>Product Name</th>
+            <th>Domain</th>
+            <th>Start Date</th>
+            <th>Duration Months</th>
+        </tr>
+
+        {% for product in products %} 
+            <tr>
+                <td>{{ product.customerId }}</td>
+                <td>{{ product.productName }}</td>
+                <td>{{ product.domain }}</td>
+                <td>{{ product.startDate }}</td>
+                <td>{{ product.durationMmonths }}</td>
+            </tr>
+        {%endfor%}
+    </table>
+
+    <hr/>
+    <p>Total products: {{ products|length }}</p>
 {% endblock %}
