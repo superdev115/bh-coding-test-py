@@ -1,4 +1,32 @@
 {% extends "layout/layout.html" %}
 {% block body %}
     <h1>Add Product</h1>
+
+    <form action="{{ url_for('add_product') }}" method="post">
+        {{ form.csrf_token }}
+        <table>
+            <tr>
+                <td>{{ form.customerId.label }}</td>
+                <td>{{ form.customerId(size=30) }}</td>
+                <td>{{ render_error(form.customerId) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.product_name.label }}</td>
+                <td>{{ form.product_name }}</td>
+                <td>{{ render_error(form.product_name) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.domain.label }}</td>
+                <td>{{ form.domain(size=30) }}</td>
+                <td>{{ render_error(form.domain) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.duration_months.label }}</td>
+                <td>{{ form.duration_months }}</td>
+                <td>{{ render_error(form.duration_months) }}</td>
+            </tr>
+        </table>
+
+        <input type="submit" style="margin-top: 2em;" value="Add"/>
+    </form>
 {% endblock %}

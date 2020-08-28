@@ -33,6 +33,10 @@ h2 {
     text-align: center;
 }
 
+th, td {
+    padding: 15px;
+}
+
 .flash {
     background: #CEE5F5;
     padding: 0.5em;
