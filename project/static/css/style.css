@@ -22,10 +22,15 @@ h2 {
 
 .page {
     margin: 2em auto;
-    width: 35em;
+    width: 60em;
     border: 5px solid #ccc;
     padding: 0.8em;
     background: white;
+}
+
+.nav-link {
+    margin-right: 2em;
+    text-align: center;
 }
 
 .flash {
