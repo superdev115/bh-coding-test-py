@@ -42,9 +42,10 @@ th, td {
 }
 
 .flash {
-    background: #CEE5F5;
+    background: #F0D6D6;
+    margin-top: 2em;
     padding: 0.5em;
-    border: 1px solid #AACBE2;
+    border: 1px solid #F02626;
 }
 
 .error {
